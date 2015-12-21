@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //function to declare numbers
+    //function to declare numbers in game
     function check(counter) {
         var msg = "<li>" + counter + "</li>";
 
