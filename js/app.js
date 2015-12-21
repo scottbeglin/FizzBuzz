@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    //game entry
+    var gameStart = prompt("Enter 100 to get your FizzBuzz");
+    if (gameStart != 100)
+        alert("You need to enter 100");
+
     //function to declare numbers in game
     function check(counter) {
         var msg = "<li>" + counter + "</li>";
