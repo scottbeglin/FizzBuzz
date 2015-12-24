@@ -1,9 +1,14 @@
 $(document).ready(function () {
 
     //game entry
-    var gameStart = prompt("Enter 100 to get your FizzBuzz");
-    if (gameStart != 100)
-        alert("You need to enter 100");
+    var gameStart = prompt("Enter the upper limit");
+    if (Math.floor(gameStart) != gameStart) {
+        alert("Please enter a number");
+    } else { //list numbers from 1-100 with FizzBuzz results
+        for (var counter = 1; counter <= 100; counter++) {
+            $('#getAnswers').append(check(counter));
+        }
+    }
 
     //function to declare numbers in game
     function check(counter) {
@@ -31,10 +36,6 @@ $(document).ready(function () {
         console.log(counter);
         return msg;
 
-    }
-    //list numbers from 1-100 with FizzBuzz results
-    for (var counter = 1; counter <= 100; counter++) {
-        $('#getAnswers').append(check(counter));
     }
 
 });
