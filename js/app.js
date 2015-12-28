@@ -1,41 +1,44 @@
 $(document).ready(function () {
 
-    //game entry
-    var gameStart = prompt("Enter the upper limit");
-    if (Math.floor(gameStart) != gameStart) {
-        alert("Please enter a number");
-    } else { //list numbers from 1-100 with FizzBuzz results
-        for (var counter = 1; counter <= 100; counter++) {
+    //fizzbuz function is creating the game
+    function fizzbuzz(limit) {
+
+        //check the each number and show the results
+        function check(n) {
+            var msg = "<li>" + n + "</li>";
+
+            if (n % 3 == 0) {
+                msg = "<li>Fizz</li>";
+            };
+            if (n % 5 == 0) {
+                msg = "<li>Buzz</li>";
+            };
+            if (n % 15 == 0) {
+                msg = "<li>FizzBuzz</li>";
+            };
+            return msg;
+        }
+
+        //loop through all the numbers and call the check counter function
+        for (var counter = 1; counter <= limit; counter++) {
             $('#getAnswers').append(check(counter));
         }
     }
 
-    //function to declare numbers in game
-    function check(counter) {
-        var msg = "<li>" + counter + "</li>";
 
-        //if number is a multiple of 3 print Fizz
-        if (counter % 3 == 0) {
-            msg = "<li>Fizz</li>";
-            console.log("Fizz");
-        }
+    //get the upper limit from the user input
+    var limit = prompt("Please set the upper limit to play FizzBuzz.");
 
-        //if number is a multiple of 5 print Buzz
-        if (counter % 5 == 0) {
-            msg = "<li>Buzz</li>";
-            console.log("Buzz");
-        }
 
-        //if number is a multiple of 3 and 5 print FizzBuzz
-        if (counter % 15 == 0) {
-            msg = "<li>FizzBuzz</li>";
-            console.log("FizzBuzz");
-        }
-
-        //print remaining numbers
-        console.log(counter);
-        return msg;
-
+    var userInputCorrect = true;
+    //check if the limit is a number
+    while (Math.floor(limit) != limit) {
+        var limit = prompt("Your upper limit was not correct. Set it again.");
+        userInputCorrect = false;
+    }
+    //if the user inoput is a number then play the game
+    if (userInputCorrect = true) {
+        fizzbuzz(limit);
     }
 
 });
